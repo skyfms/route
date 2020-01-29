@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Http\Exception;
 
@@ -11,7 +11,7 @@ interface HttpExceptionInterface
      *
      * @return integer
      */
-    public function getStatusCode(): int;
+    public function getStatusCode();
 
     /**
      * Return an array of headers provided when the exception was thrown

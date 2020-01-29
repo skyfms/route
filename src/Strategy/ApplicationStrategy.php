@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Strategy;
 
@@ -8,6 +8,7 @@ use League\Route\{ContainerAwareInterface, ContainerAwareTrait};
 use Psr\Http\Message\{ResponseInterface, ServerRequestInterface};
 use Psr\Http\Server\{MiddlewareInterface, RequestHandlerInterface};
 use Throwable;
+use Exception;
 
 class ApplicationStrategy extends AbstractStrategy implements ContainerAwareInterface
 {
@@ -49,13 +50,13 @@ class ApplicationStrategy extends AbstractStrategy implements ContainerAwareInte
      *
      * @return \Psr\Http\Server\MiddlewareInterface
      */
-    protected function throwThrowableMiddleware(Throwable $error): MiddlewareInterface
+    protected function throwThrowableMiddleware($error): MiddlewareInterface
     {
         return new class($error) implements MiddlewareInterface
         {
             protected $error;
 
-            public function __construct(Throwable $error)
+            public function __construct($error)
             {
                 $this->error = $error;
             }
@@ -96,6 +97,8 @@ class ApplicationStrategy extends AbstractStrategy implements ContainerAwareInte
                 try {
                     return $requestHandler->handle($request);
                 } catch (Throwable $e) {
+                    throw $e;
+                } catch (Exception $e) {
                     throw $e;
                 }
             }

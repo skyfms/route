@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Middleware;
 
@@ -53,7 +53,7 @@ trait MiddlewareAwareTrait
      *
      * @return static
      */
-    public function lazyMiddleware(string $middleware): MiddlewareAwareInterface
+    public function lazyMiddleware($middleware): MiddlewareAwareInterface
     {
         $this->middleware[] = $middleware;
 
@@ -83,7 +83,7 @@ trait MiddlewareAwareTrait
      *
      * @return static
      */
-    public function lazyPrependMiddleware(string $middleware): MiddlewareAwareInterface
+    public function lazyPrependMiddleware($middleware): MiddlewareAwareInterface
     {
         array_unshift($this->middleware, $middleware);
 
@@ -107,7 +107,7 @@ trait MiddlewareAwareTrait
     /**
      * {@inheritdoc}
      */
-    public function getMiddlewareStack(): iterable
+    public function getMiddlewareStack()
     {
         return $this->middleware;
     }
@@ -120,7 +120,7 @@ trait MiddlewareAwareTrait
      *
      * @return MiddlewareInterface
      */
-    protected function resolveMiddleware($middleware, ?ContainerInterface $container = null): MiddlewareInterface
+    protected function resolveMiddleware($middleware, /* ?ContainerInterface */ $container = null): MiddlewareInterface
     {
         if ($container === null && is_string($middleware) && class_exists($middleware)) {
             $middleware = new $middleware;

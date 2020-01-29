@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route;
 
@@ -14,7 +14,7 @@ trait ContainerAwareTrait
     /**
      * {@inheritdoc}
      */
-    public function getContainer(): ?ContainerInterface
+    public function getContainer()
     {
         return $this->container;
     }

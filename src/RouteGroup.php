@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route;
 
@@ -38,7 +38,7 @@ class RouteGroup implements
      * @param callable                 $callback
      * @param RouteCollectionInterface $collection
      */
-    public function __construct(string $prefix, callable $callback, RouteCollectionInterface $collection)
+    public function __construct($prefix, callable $callback, RouteCollectionInterface $collection)
     {
         $this->callback   = $callback;
         $this->collection = $collection;
@@ -50,7 +50,7 @@ class RouteGroup implements
      *
      * @return string
      */
-    public function getPrefix(): string
+    public function getPrefix()
     {
         return $this->prefix;
     }
@@ -60,7 +60,7 @@ class RouteGroup implements
      *
      * @return void
      */
-    public function __invoke(): void
+    public function __invoke()
     {
         ($this->callback)($this);
     }
@@ -68,7 +68,7 @@ class RouteGroup implements
     /**
      * {@inheritdoc}
      */
-    public function map(string $method, string $path, $handler): Route
+    public function map($method, $path, $handler): Route
     {
         $path  = ($path === '/') ? $this->prefix : $this->prefix . sprintf('/%s', ltrim($path, '/'));
         $route = $this->collection->map($method, $path, $handler);

@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Http\Exception;
 
@@ -14,7 +14,7 @@ class TooManyRequestsException extends HttpException
      * @param Exception $previous
      * @param int $code
      */
-    public function __construct(string $message = 'Too Many Requests', ?Exception $previous = null, int $code = 0)
+    public function __construct($message = 'Too Many Requests', $previous = null, $code = 0)
     {
         parent::__construct(429, $message, $previous, [], $code);
     }

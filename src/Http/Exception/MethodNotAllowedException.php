@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Http\Exception;
 
@@ -17,9 +17,9 @@ class MethodNotAllowedException extends HttpException
      */
     public function __construct(
         array      $allowed = [],
-        string     $message = 'Method Not Allowed',
-        ?Exception $previous = null,
-        int        $code = 0
+                   $message = 'Method Not Allowed',
+                   $previous = null,
+                   $code = 0
     ) {
         $headers = [
             'Allow' => implode(', ', $allowed)

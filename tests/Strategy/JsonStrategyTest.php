@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Strategy;
 
@@ -18,7 +18,7 @@ class JsonStrategyTest extends TestCase
      *
      * @return void
      */
-    public function testStrategyHasDefaultHeaders(): void
+    public function testStrategyHasDefaultHeaders()
     {
         $factory = $this->createMock(ResponseFactoryInterface::class);
 
@@ -36,7 +36,7 @@ class JsonStrategyTest extends TestCase
      *
      * @return void
      */
-    public function testStrategyCanDefineAdditionalHeaders(): void
+    public function testStrategyCanDefineAdditionalHeaders()
     {
         $factory = $this->createMock(ResponseFactoryInterface::class);
 
@@ -60,7 +60,7 @@ class JsonStrategyTest extends TestCase
      *
      * @return void
      */
-    public function testStrategyInvokesRouteCallable(): void
+    public function testStrategyInvokesRouteCallable()
     {
         $route = $this->createMock(Route::class);
 
@@ -118,7 +118,7 @@ class JsonStrategyTest extends TestCase
      *
      * @return void
      */
-    public function testStrategyInvokesRouteCallableWithArrayReturn(): void
+    public function testStrategyInvokesRouteCallableWithArrayReturn()
     {
         $route = $this->createMock(Route::class);
 
@@ -195,7 +195,7 @@ class JsonStrategyTest extends TestCase
      *
      * @return void
      */
-    public function testStrategyReturnsCorrectNotFoundDecorator(): void
+    public function testStrategyReturnsCorrectNotFoundDecorator()
     {
         $exception      = $this->createMock(NotFoundException::class);
         $request        = $this->createMock(ServerRequestInterface::class);
@@ -229,7 +229,7 @@ class JsonStrategyTest extends TestCase
      *
      * @return void
      */
-    public function testStrategyReturnsCorrectMethodNotAllowedDecorator(): void
+    public function testStrategyReturnsCorrectMethodNotAllowedDecorator()
     {
         $exception      = $this->createMock(MethodNotAllowedException::class);
         $request        = $this->createMock(ServerRequestInterface::class);
@@ -264,7 +264,7 @@ class JsonStrategyTest extends TestCase
      *
      * @return void
      */
-    public function testStrategyReturnsCorrectExceptionHandler(): void
+    public function testStrategyReturnsCorrectExceptionHandler()
     {
         $request        = $this->createMock(ServerRequestInterface::class);
         $requestHandler = $this->createMock(RequestHandlerInterface::class);
@@ -328,7 +328,7 @@ class JsonStrategyTest extends TestCase
      *
      * @return void
      */
-    public function testStrategyReturnsCorrectHttpExceptionHandler(): void
+    public function testStrategyReturnsCorrectHttpExceptionHandler()
     {
         $exception      = $this->createMock(HttpException::class);
         $request        = $this->createMock(ServerRequestInterface::class);
@@ -370,7 +370,7 @@ class JsonStrategyTest extends TestCase
      *
      * @return void
      */
-    public function testStrategyInvokesRouteCallableWithObjectReturn(): void
+    public function testStrategyInvokesRouteCallableWithObjectReturn()
     {
         $route = $this->createMock(Route::class);
 

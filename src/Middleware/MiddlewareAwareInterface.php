@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Middleware;
 
@@ -45,5 +45,5 @@ interface MiddlewareAwareInterface
      *
      * @return MiddlewareInterface[]
      */
-    public function getMiddlewareStack(): iterable;
+    public function getMiddlewareStack();
 }

@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route;
 
@@ -11,7 +11,7 @@ class RouteGroupTest extends TestCase
      *
      * @return void
      */
-    public function testGroupIsInvokedAndAddsRoutesToCollection(): void
+    public function testGroupIsInvokedAndAddsRoutesToCollection()
     {
         $callback = function () {
         };
@@ -115,7 +115,7 @@ class RouteGroupTest extends TestCase
      *
      * @return void
      */
-    public function testGroupAddsStrategyToRoute(): void
+    public function testGroupAddsStrategyToRoute()
     {
         $callback = function () {
         };

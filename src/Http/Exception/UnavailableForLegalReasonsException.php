@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Http\Exception;
 
@@ -15,9 +15,9 @@ class UnavailableForLegalReasonsException extends HttpException
      * @param int $code
      */
     public function __construct(
-        string     $message = 'Unavailable For Legal Reasons',
-        ?Exception $previous = null,
-        int        $code = 0
+                   $message = 'Unavailable For Legal Reasons',
+                   $previous = null,
+                   $code = 0
     ) {
         parent::__construct(451, $message, $previous, [], $code);
     }

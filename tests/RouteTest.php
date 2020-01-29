@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route;
 
@@ -16,7 +16,7 @@ class RouteTest extends TestCase
      *
      * @return void
      */
-    public function testRouteSetsAndResolvesInvokableClassCallable(): void
+    public function testRouteSetsAndResolvesInvokableClassCallable()
     {
         $callable = new Controller;
         $route    = new Route('GET', '/', $callable);
@@ -28,7 +28,7 @@ class RouteTest extends TestCase
      *
      * @return void
      */
-    public function testRouteSetsAndResolvesClassMethodCallable(): void
+    public function testRouteSetsAndResolvesClassMethodCallable()
     {
         $callable = [new Controller, 'action'];
         $route    = new Route('GET', '/', $callable);
@@ -40,7 +40,7 @@ class RouteTest extends TestCase
      *
      * @return void
      */
-    public function testRouteSetsAndResolvesNamedFunctionCallable(): void
+    public function testRouteSetsAndResolvesNamedFunctionCallable()
     {
         $callable = 'League\Route\Fixture\namedFunctionCallable';
         $route    = new Route('GET', '/', $callable);
@@ -52,7 +52,7 @@ class RouteTest extends TestCase
      *
      * @return void
      */
-    public function testRouteSetsAndResolvesClassMethodCallableAsStringViaContainer(): void
+    public function testRouteSetsAndResolvesClassMethodCallableAsStringViaContainer()
     {
         $container = $this->createMock(ContainerInterface::class);
 
@@ -84,7 +84,7 @@ class RouteTest extends TestCase
      *
      * @return void
      */
-    public function testRouteSetsAndResolvesClassMethodCallableAsStringWithoutContainer(): void
+    public function testRouteSetsAndResolvesClassMethodCallableAsStringWithoutContainer()
     {
         $container = $this->createMock(ContainerInterface::class);
 
@@ -109,7 +109,7 @@ class RouteTest extends TestCase
      *
      * @return void
      */
-    public function testRouteThrowsExceptionWhenSettingAndResolvingNonCallable(): void
+    public function testRouteThrowsExceptionWhenSettingAndResolvingNonCallable()
     {
         $this->expectException(InvalidArgumentException::class);
         $route = new Route('GET', '/', new \stdClass);
@@ -121,7 +121,7 @@ class RouteTest extends TestCase
      *
      * @return void
      */
-    public function testRouteCanSetAndGetAllProperties(): void
+    public function testRouteCanSetAndGetAllProperties()
     {
         $route = new Route('GET', '/something', function () {
         });

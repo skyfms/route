@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Http;
 
@@ -32,11 +32,11 @@ class Exception extends \Exception implements HttpExceptionInterface
      * @param int        $code
      */
     public function __construct(
-        int        $status,
-        string     $message = null,
-        \Exception $previous = null,
+                   $status,
+                   $message = null,
+                   $previous = null,
         array      $headers = [],
-        int        $code = 0
+                   $code = 0
     ) {
         $this->headers = $headers;
         $this->message = $message;
@@ -48,7 +48,7 @@ class Exception extends \Exception implements HttpExceptionInterface
     /**
      * {@inheritdoc}
      */
-    public function getStatusCode(): int
+    public function getStatusCode()
     {
         return $this->status;
     }

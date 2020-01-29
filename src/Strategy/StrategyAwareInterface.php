@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Strategy;
 
@@ -9,7 +9,7 @@ interface StrategyAwareInterface
      *
      * @return StrategyInterface
      */
-    public function getStrategy(): ?StrategyInterface;
+    public function getStrategy();
 
     /**
      * Set the strategy implementation

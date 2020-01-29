@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route;
 
@@ -83,7 +83,7 @@ class Dispatcher extends GroupCountBasedDispatcher implements
      *
      * @return void
      */
-    protected function setFoundMiddleware(Route $route): void
+    protected function setFoundMiddleware(Route $route)
     {
         if ($route->getStrategy() === null) {
             $route->setStrategy($this->getStrategy());
@@ -119,7 +119,7 @@ class Dispatcher extends GroupCountBasedDispatcher implements
      *
      * @return void
      */
-    protected function setNotFoundDecoratorMiddleware(): void
+    protected function setNotFoundDecoratorMiddleware()
     {
         $middleware = $this->getStrategy()->getNotFoundDecorator(new NotFoundException);
         $this->prependMiddleware($middleware);
@@ -132,7 +132,7 @@ class Dispatcher extends GroupCountBasedDispatcher implements
      *
      * @return void
      */
-    protected function setMethodNotAllowedDecoratorMiddleware(array $allowed): void
+    protected function setMethodNotAllowedDecoratorMiddleware(array $allowed)
     {
         $middleware = $this->getStrategy()->getMethodNotAllowedDecorator(
             new MethodNotAllowedException($allowed)

@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route;
 
@@ -9,7 +9,7 @@ interface RouteConditionHandlerInterface
      *
      * @return string|null
      */
-    public function getHost(): ?string;
+    public function getHost();
 
     /**
      * Set the host condition
@@ -18,14 +18,14 @@ interface RouteConditionHandlerInterface
      *
      * @return static
      */
-    public function setHost(string $host): RouteConditionHandlerInterface;
+    public function setHost($host): RouteConditionHandlerInterface;
 
     /**
      * Get the route name
      *
      * @return string|null
      */
-    public function getName(): ?string;
+    public function getName();
 
     /**
      * Set the route name
@@ -34,14 +34,14 @@ interface RouteConditionHandlerInterface
      *
      * @return static
      */
-    public function setName(string $name): RouteConditionHandlerInterface;
+    public function setName($name): RouteConditionHandlerInterface;
 
     /**
      * Get the scheme condition
      *
      * @return string|null
      */
-    public function getScheme(): ?string;
+    public function getScheme();
 
     /**
      * Set the scheme condition
@@ -50,14 +50,14 @@ interface RouteConditionHandlerInterface
      *
      * @return static
      */
-    public function setScheme(string $scheme): RouteConditionHandlerInterface;
+    public function setScheme($scheme): RouteConditionHandlerInterface;
 
     /**
      * Get the port condition
      *
      * @return int|null
      */
-    public function getPort(): ?int;
+    public function getPort();
 
     /**
      * Set the port condition
@@ -66,5 +66,5 @@ interface RouteConditionHandlerInterface
      *
      * @return static
      */
-    public function setPort(int $port): RouteConditionHandlerInterface;
+    public function setPort($port): RouteConditionHandlerInterface;
 }

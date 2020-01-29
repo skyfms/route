@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Http\Exception;
 
@@ -14,7 +14,7 @@ class UnprocessableEntityException extends HttpException
      * @param Exception $previous
      * @param int $code
      */
-    public function __construct(string $message = 'Unprocessable Entity', ?Exception $previous = null, int $code = 0)
+    public function __construct($message = 'Unprocessable Entity', $previous = null, $code = 0)
     {
         parent::__construct(422, $message, $previous, [], $code);
     }

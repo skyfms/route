@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route;
 
@@ -19,7 +19,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testDispatchesFoundRoute(): void
+    public function testDispatchesFoundRoute()
     {
         $request  = $this->createMock(ServerRequestInterface::class);
         $response = $this->createMock(ResponseInterface::class);
@@ -68,7 +68,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testDispatchesExceptionRoute(): void
+    public function testDispatchesExceptionRoute()
     {
         $this->expectException(Exception::class);
 
@@ -107,7 +107,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testDispatchesExceptionWithJsonStrategyRoute(): void
+    public function testDispatchesExceptionWithJsonStrategyRoute()
     {
         $request  = $this->createMock(ServerRequestInterface::class);
         $response = $this->createMock(ResponseInterface::class);
@@ -187,7 +187,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testDispatchesHttpExceptionWithJsonStrategyRoute(): void
+    public function testDispatchesHttpExceptionWithJsonStrategyRoute()
     {
         $request  = $this->createMock(ServerRequestInterface::class);
         $response = $this->createMock(ResponseInterface::class);
@@ -271,7 +271,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testDispatchesNotFoundRoute(): void
+    public function testDispatchesNotFoundRoute()
     {
         $this->expectException(NotFoundException::class);
 
@@ -306,7 +306,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testDispatchesNotFoundRouteWithJsonStrategy(): void
+    public function testDispatchesNotFoundRouteWithJsonStrategy()
     {
         $request  = $this->createMock(ServerRequestInterface::class);
         $response = $this->createMock(ResponseInterface::class);
@@ -386,7 +386,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testDispatchesNotAllowedRoute(): void
+    public function testDispatchesNotAllowedRoute()
     {
         $this->expectException(MethodNotAllowedException::class);
 
@@ -425,7 +425,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testDispatchesNotAllowedRouteWithJsonStrategy(): void
+    public function testDispatchesNotAllowedRouteWithJsonStrategy()
     {
         $request  = $this->createMock(ServerRequestInterface::class);
         $response = $this->createMock(ResponseInterface::class);
@@ -517,7 +517,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testRoutesDoesNotPrepMismatchedScheme(): void
+    public function testRoutesDoesNotPrepMismatchedScheme()
     {
         $this->expectException(Http\Exception\NotFoundException::class);
 
@@ -561,7 +561,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testRoutesDoesNotPrepMismatchedHost(): void
+    public function testRoutesDoesNotPrepMismatchedHost()
     {
         $this->expectException(Http\Exception\NotFoundException::class);
 
@@ -605,7 +605,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testRoutesDoesNotPrepMismatchedPort(): void
+    public function testRoutesDoesNotPrepMismatchedPort()
     {
         $this->expectException(Http\Exception\NotFoundException::class);
 
@@ -649,7 +649,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testRouterSetsGroupStrategyOnGroupUriMatchButNoRouteMatch(): void
+    public function testRouterSetsGroupStrategyOnGroupUriMatchButNoRouteMatch()
     {
         $this->expectException(Http\Exception\NotFoundException::class);
 
@@ -694,7 +694,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testRouteStrategyOverridesGlobalStrategy(): void
+    public function testRouteStrategyOverridesGlobalStrategy()
     {
         $request  = $this->createMock(ServerRequestInterface::class);
         $response = $this->createMock(ResponseInterface::class);
@@ -747,7 +747,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testRouteStrategyOverridesGroupStrategy(): void
+    public function testRouteStrategyOverridesGroupStrategy()
     {
         $request  = $this->createMock(ServerRequestInterface::class);
         $response = $this->createMock(ResponseInterface::class);
@@ -801,7 +801,7 @@ class DispatchIntegrationTest extends TestCase
      *
      * @return void
      */
-    public function testMiddlewareIsOrderedCorrectly(): void
+    public function testMiddlewareIsOrderedCorrectly()
     {
         $counter = new class
         {
@@ -952,7 +952,7 @@ class DispatchIntegrationTest extends TestCase
             ->lazyMiddleware($middlewareFour)
         ;
 
-        $router->group('/group', function ($r) use ($response, $middlewareThree, $middlewareFour): void {
+        $router->group('/group', function ($r) use ($response, $middlewareThree, $middlewareFour) {
             $r->get('/route', function (ServerRequestInterface $request) use ($response): ResponseInterface {
                 return $response;
             })->middleware($middlewareThree)->lazyMiddleware($middlewareFour);
@@ -964,7 +964,7 @@ class DispatchIntegrationTest extends TestCase
     /**
      * Asserts that dispatcher always creates a Route object
      */
-    public function testDispatchDoesNotThrowWhenUsingAddRoute(): void
+    public function testDispatchDoesNotThrowWhenUsingAddRoute()
     {
         $request  = $this->createMock(ServerRequestInterface::class);
         $response = $this->createMock(ResponseInterface::class);

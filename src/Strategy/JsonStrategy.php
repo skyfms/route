@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Strategy;
 
@@ -9,6 +9,7 @@ use League\Route\Route;
 use Psr\Http\Message\{ResponseFactoryInterface, ResponseInterface, ServerRequestInterface};
 use Psr\Http\Server\{MiddlewareInterface, RequestHandlerInterface};
 use Throwable;
+use Exception;
 
 class JsonStrategy extends AbstractStrategy implements ContainerAwareInterface
 {
@@ -59,7 +60,7 @@ class JsonStrategy extends AbstractStrategy implements ContainerAwareInterface
      *
      * @return bool
      */
-    protected function isJsonEncodable($response): bool
+    protected function isJsonEncodable($response)
     {
         if ($response instanceof ResponseInterface) {
             return false;
@@ -141,7 +142,7 @@ class JsonStrategy extends AbstractStrategy implements ContainerAwareInterface
             ): ResponseInterface {
                 try {
                     return $requestHandler->handle($request);
-                } catch (Throwable $exception) {
+                } catch (Exception $exception) {
                     $response = $this->response;
 
                     if ($exception instanceof HttpException) {

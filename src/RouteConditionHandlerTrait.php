@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route;
 
@@ -27,7 +27,7 @@ trait RouteConditionHandlerTrait
     /**
      * {@inheritdoc}
      */
-    public function getHost(): ?string
+    public function getHost()
     {
         return $this->host;
     }
@@ -35,7 +35,7 @@ trait RouteConditionHandlerTrait
     /**
      * {@inheritdoc}
      */
-    public function setHost(string $host): RouteConditionHandlerInterface
+    public function setHost($host): RouteConditionHandlerInterface
     {
         $this->host = $host;
 
@@ -45,7 +45,7 @@ trait RouteConditionHandlerTrait
     /**
      * {@inheritdoc}
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
@@ -53,7 +53,7 @@ trait RouteConditionHandlerTrait
     /**
      * {@inheritdoc}
      */
-    public function setName(string $name): RouteConditionHandlerInterface
+    public function setName($name): RouteConditionHandlerInterface
     {
         $this->name = $name;
 
@@ -63,7 +63,7 @@ trait RouteConditionHandlerTrait
     /**
      * {@inheritdoc}
      */
-    public function getScheme(): ?string
+    public function getScheme()
     {
         return $this->scheme;
     }
@@ -71,7 +71,7 @@ trait RouteConditionHandlerTrait
     /**
      * {@inheritdoc}
      */
-    public function setScheme(string $scheme): RouteConditionHandlerInterface
+    public function setScheme($scheme): RouteConditionHandlerInterface
     {
         $this->scheme = $scheme;
 
@@ -81,7 +81,7 @@ trait RouteConditionHandlerTrait
     /**
      * {@inheritdoc}
      */
-    public function getPort(): ?int
+    public function getPort()
     {
         return $this->port;
     }
@@ -89,7 +89,7 @@ trait RouteConditionHandlerTrait
     /**
      * {@inheritdoc}
      */
-    public function setPort(int $port): RouteConditionHandlerInterface
+    public function setPort($port): RouteConditionHandlerInterface
     {
         $this->port = $port;
 

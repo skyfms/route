@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route;
 
@@ -13,7 +13,7 @@ interface RouteCollectionInterface
      *
      * @return Route
      */
-    public function map(string $method, string $path, $handler): Route;
+    public function map($method, $path, $handler): Route;
 
     /**
      * Add a route that responds to GET HTTP method

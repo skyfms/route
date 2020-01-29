@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route;
 
@@ -52,7 +52,7 @@ class Route implements
      * @param string          $path
      * @param callable|string $handler
      */
-    public function __construct(string $method, string $path, $handler)
+    public function __construct($method, $path, $handler)
     {
         $this->method  = $method;
         $this->path    = $path;
@@ -78,7 +78,7 @@ class Route implements
      *
      * @throws InvalidArgumentException
      */
-    public function getCallable(?ContainerInterface $container = null): callable
+    public function getCallable(/*?ContainerInterface*/ $container = null): callable
     {
         $callable = $this->handler;
 
@@ -113,7 +113,7 @@ class Route implements
      *
      * @return object
      */
-    protected function resolveClass(?ContainerInterface $container = null, string $class)
+    protected function resolveClass(/*?ContainerInterface*/ $container = null, $class)
     {
         if ($container instanceof ContainerInterface && $container->has($class)) {
             return $container->get($class);
@@ -151,7 +151,7 @@ class Route implements
      *
      * @return RouteGroup
      */
-    public function getParentGroup(): ?RouteGroup
+    public function getParentGroup()
     {
         return $this->group;
     }
@@ -182,7 +182,7 @@ class Route implements
      *
      * @return string
      */
-    public function getPath(): string
+    public function getPath()
     {
         return $this->path;
     }
@@ -192,7 +192,7 @@ class Route implements
      *
      * @return string
      */
-    public function getMethod(): string
+    public function getMethod()
     {
         return $this->method;
     }

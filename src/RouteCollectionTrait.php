@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route;
 
@@ -13,7 +13,7 @@ trait RouteCollectionTrait
      *
      * @return Route
      */
-    abstract public function map(string $method, string $path, $handler);
+    abstract public function map($method, $path, $handler);
 
     /**
      * Add a route that responds to GET HTTP method.

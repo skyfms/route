@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Strategy;
 
@@ -22,7 +22,7 @@ trait StrategyAwareTrait
     /**
      * {@inheritdoc}
      */
-    public function getStrategy(): ?StrategyInterface
+    public function getStrategy()
     {
         return $this->strategy;
     }

@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route;
 
@@ -13,7 +13,7 @@ class RouterTest extends TestCase
      *
      * @return void
      */
-    public function testCRouterMapsAndReturnsRoute(): void
+    public function testCRouterMapsAndReturnsRoute()
     {
         $router   = new Router;
         $path     = '/something';
@@ -36,7 +36,7 @@ class RouterTest extends TestCase
      *
      * @return void
      */
-    public function testCollectionMapsAndReturnsGroup(): void
+    public function testCollectionMapsAndReturnsGroup()
     {
         $router   = new Router;
         $prefix   = '/something';
@@ -53,7 +53,7 @@ class RouterTest extends TestCase
      *
      * @return void
      */
-    public function testCollectionCanSetAndGetNamedRoute(): void
+    public function testCollectionCanSetAndGetNamedRoute()
     {
         $router = new Router;
         $name   = 'route';
@@ -74,7 +74,7 @@ class RouterTest extends TestCase
      *
      * @return void
      */
-    public function testCollectionThrowsExceptionWhenAttemptingToGetNamedRouteThatDoesNotExist(): void
+    public function testCollectionThrowsExceptionWhenAttemptingToGetNamedRouteThatDoesNotExist()
     {
         $this->expectException(InvalidArgumentException::class);
         (new Router)->getNamedRoute('umm');
@@ -85,7 +85,7 @@ class RouterTest extends TestCase
      *
      * @return void
      */
-    public function testNewPatternMatchesCanBeAddedAtRuntime(): void
+    public function testNewPatternMatchesCanBeAddedAtRuntime()
     {
         $router = new Router;
         $router->addPatternMatcher('mockMatcher', '[a-zA-Z]');

@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route;
 
@@ -49,7 +49,7 @@ class Router extends RouteCollector implements
      * @param RouteParser $parser
      * @param DataGenerator $generator
      */
-    public function __construct(?RouteParser $parser = null, ?DataGenerator $generator = null)
+    public function __construct(/* ?RouteParser */ $parser = null, /* ?DataGenerator */ $generator = null)
     {
         // build parent route collector
         $parser    = $parser ?? new RouteParser\Std;
@@ -60,7 +60,7 @@ class Router extends RouteCollector implements
     /**
      * {@inheritdoc}
      */
-    public function map(string $method, string $path, $handler): Route
+    public function map($method, $path, $handler): Route
     {
         $path  = sprintf('/%s', ltrim($path, '/'));
         $route = new Route($method, $path, $handler);
@@ -78,7 +78,7 @@ class Router extends RouteCollector implements
      *
      * @return RouteGroup
      */
-    public function group(string $prefix, callable $group): RouteGroup
+    public function group($prefix, callable $group): RouteGroup
     {
         $group          = new RouteGroup($prefix, $group, $this);
         $this->groups[] = $group;
@@ -120,7 +120,7 @@ class Router extends RouteCollector implements
      *
      * @return void
      */
-    protected function prepRoutes(ServerRequestInterface $request): void
+    protected function prepRoutes(ServerRequestInterface $request)
     {
         $this->processGroups($request);
         $this->buildNameIndex();
@@ -160,7 +160,7 @@ class Router extends RouteCollector implements
      *
      * @return void
      */
-    protected function buildNameIndex(): void
+    protected function buildNameIndex()
     {
         foreach ($this->routes as $key => $route) {
             if ($route->getName() !== null) {
@@ -180,7 +180,7 @@ class Router extends RouteCollector implements
      *
      * @return void
      */
-    protected function processGroups(ServerRequestInterface $request): void
+    protected function processGroups(ServerRequestInterface $request)
     {
         $activePath = $request->getUri()->getPath();
 
@@ -207,7 +207,7 @@ class Router extends RouteCollector implements
      *
      * @throws InvalidArgumentException when no route of the provided name exists
      */
-    public function getNamedRoute(string $name): Route
+    public function getNamedRoute($name): Route
     {
         $this->buildNameIndex();
 
@@ -226,7 +226,7 @@ class Router extends RouteCollector implements
      *
      * @return self
      */
-    public function addPatternMatcher(string $alias, string $regex): self
+    public function addPatternMatcher($alias, $regex): self
     {
         $pattern = '/{(.+?):' . $alias . '}/';
         $regex   = '{$1:' . $regex . '}';
@@ -243,7 +243,7 @@ class Router extends RouteCollector implements
      *
      * @return string
      */
-    protected function parseRoutePath(string $path): string
+    protected function parseRoutePath($path)
     {
         return preg_replace(array_keys($this->patternMatchers), array_values($this->patternMatchers), $path);
     }

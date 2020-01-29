@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Http\Exception;
 
@@ -14,7 +14,7 @@ class UnsupportedMediaException extends HttpException
      * @param Exception $previous
      * @param int $code
      */
-    public function __construct(string $message = 'Unsupported Media', ?Exception $previous = null, int $code = 0)
+    public function __construct($message = 'Unsupported Media', $previous = null, $code = 0)
     {
         parent::__construct(415, $message, $previous, [], $code);
     }

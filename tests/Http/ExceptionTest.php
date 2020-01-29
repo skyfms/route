@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Http;
 
@@ -14,7 +14,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    protected function responseTester(Exception $e): void
+    protected function responseTester(Exception $e)
     {
         $json = json_encode([
             'status_code'   => $e->getStatusCode(),
@@ -65,7 +65,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testHttpExceptionIsBuiltCorrectly(): void
+    public function testHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception(400, 'Bad Request', null, ['header' => 'value']);
@@ -83,7 +83,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testBadRequestHttpExceptionIsBuiltCorrectly(): void
+    public function testBadRequestHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\BadRequestException;
@@ -100,7 +100,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testConflictHttpExceptionIsBuiltCorrectly(): void
+    public function testConflictHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\ConflictException;
@@ -117,7 +117,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testExpectationFailedHttpExceptionIsBuiltCorrectly(): void
+    public function testExpectationFailedHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\ExpectationFailedException;
@@ -134,7 +134,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testForbiddenHttpExceptionIsBuiltCorrectly(): void
+    public function testForbiddenHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\ForbiddenException;
@@ -151,7 +151,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testGoneHttpExceptionIsBuiltCorrectly(): void
+    public function testGoneHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\GoneException;
@@ -168,7 +168,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testImATeapotHttpExceptionIsBuiltCorrectly(): void
+    public function testImATeapotHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\ImATeapotException;
@@ -185,7 +185,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testLengthRequiredHttpExceptionIsBuiltCorrectly(): void
+    public function testLengthRequiredHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\LengthRequiredException;
@@ -202,7 +202,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testMethodNotAllowedHttpExceptionIsBuiltCorrectly(): void
+    public function testMethodNotAllowedHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\MethodNotAllowedException(['GET', 'POST']);
@@ -219,7 +219,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testNotAcceptableHttpExceptionIsBuiltCorrectly(): void
+    public function testNotAcceptableHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\NotAcceptableException;
@@ -236,7 +236,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testNotFoundHttpExceptionIsBuiltCorrectly(): void
+    public function testNotFoundHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\NotFoundException;
@@ -253,7 +253,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testPreconditionFailedHttpExceptionIsBuiltCorrectly(): void
+    public function testPreconditionFailedHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\PreconditionFailedException;
@@ -270,7 +270,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testPreconditionRequiredHttpExceptionIsBuiltCorrectly(): void
+    public function testPreconditionRequiredHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\PreconditionRequiredException;
@@ -287,7 +287,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testTooManyRequestsHttpExceptionIsBuiltCorrectly(): void
+    public function testTooManyRequestsHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\TooManyRequestsException;
@@ -304,7 +304,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testUnauthorizedHttpExceptionIsBuiltCorrectly(): void
+    public function testUnauthorizedHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\UnauthorizedException;
@@ -321,7 +321,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testUnprocessableEntityHttpExceptionIsBuiltCorrectly(): void
+    public function testUnprocessableEntityHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\UnprocessableEntityException;
@@ -338,7 +338,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testUnsupportedMediaHttpExceptionIsBuiltCorrectly(): void
+    public function testUnsupportedMediaHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\UnsupportedMediaException;
@@ -355,7 +355,7 @@ class ExceptionTest extends TestCase
      *
      * @return void
      */
-    public function testUnavailableForLegalReasonsHttpExceptionIsBuiltCorrectly(): void
+    public function testUnavailableForLegalReasonsHttpExceptionIsBuiltCorrectly()
     {
         try {
             throw new Exception\UnavailableForLegalReasonsException;

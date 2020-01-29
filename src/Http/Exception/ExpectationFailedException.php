@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Http\Exception;
 
@@ -14,7 +14,7 @@ class ExpectationFailedException extends HttpException
      * @param Exception $previous
      * @param int $code
      */
-    public function __construct(string $message = 'Expectation Failed', ?Exception $previous = null, int $code = 0)
+    public function __construct($message = 'Expectation Failed', $previous = null, $code = 0)
     {
         parent::__construct(417, $message, $previous, [], $code);
     }

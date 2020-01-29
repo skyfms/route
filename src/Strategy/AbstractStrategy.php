@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Route\Strategy;
 
@@ -27,7 +27,7 @@ abstract class AbstractStrategy implements StrategyInterface
      *
      * @return static
      */
-    public function addDefaultResponseHeader(string $name, string $value): AbstractStrategy
+    public function addDefaultResponseHeader($name, $value): AbstractStrategy
     {
         $this->defaultResponseHeaders[strtolower($name)] = $value;
 
